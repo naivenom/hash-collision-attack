@@ -12,7 +12,6 @@
 ## python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
 ###############################################################
 
-import os
 import argparse
 
 parser = argparse.ArgumentParser()
