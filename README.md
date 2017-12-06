@@ -6,19 +6,18 @@ A Hash Collision Attack is an attempt to find two input strings of a hash functi
 ssh col@pwnable.kr -p2222 (pw:guest)
 
 So there are three files of interest here, col, col.c, and flag. Similar to the fd challenge, flag is owned by the user col2 and we don’t have read permissions to view it, and again the suid flag is set on the file col.
-
+```
 col@ubuntu:~$ ./col 
 usage : ./col [passcode] 
 col@ubuntu:~$ ./col AAAA 
 passcode length should be 20 bytes 
 col@ubuntu:~$ ./col AAAABBBBCCCCDDDDEEEE 
 wrong passcode.
-
+```
 So it wants us to enter a 20 byte passcode, and obviously compares it to something as apparently our 20 byte passcode is wrong. Let’s take a look at the source…
 
 If we look at source code:
-
-col@ubuntu:~$ cat col.c
+```c
 #include <stdio.h>
 #include <string.h>
 unsigned long hashcode = 0x21DD09EC;
@@ -58,7 +57,7 @@ int main(int argc, char* argv[]){
     return 0;
 }
 
-
+```
 In the first function just take the 20 Bytes of our input. We want to pass 20 bytes than when cast to integers (5 of them, as a single int occupies 4 bytes), sum up to 0x21DD09EC.
 
 So in the source we can see, hashcode = 0x21DD09EC, which is later compared to the result of the function check_password(argv[1]). If they are the same this will cat our flag.
