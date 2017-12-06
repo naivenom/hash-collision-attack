@@ -34,7 +34,6 @@ print ('[+]Vulnapp:', results.vulnapp)
 
 c = 0
 x = "\\x"
-X= "x"
 array1 = []
 array2 = []
 reverse_array1= []
@@ -56,11 +55,11 @@ if type(divide) == float:
 	lenHex2Withoutx = int(len(hex2Withoutx))
 	if lenHex1Withoutx%2 == 0 and lenHex2Withoutx%2 == 0:
 		for i in range(int(len(hex1Withoutx))//2):
-			array1.append(str(X)+hex1WithoutxPlus0[c:2+c])
+			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
 		c = 0
 		for i in range(int(len(hex2Withoutx))//2):
-			array2.append(str(X)+hex2WithoutxPlus0[c:2+c])
+			array2.append(str(x)+hex2WithoutxPlus0[c:2+c])
 			c = c+2
 		print('[+] EXPLOTATION:')
 		reverse_array1 = array1.reverse()
@@ -103,7 +102,7 @@ else: #integer and round value, not float
 	lenHex1Withoutx = int(len(hex1Withoutx))
 	if lenHex1Withoutx%2 == 0 and lenHex2Withoutx%2 == 0:
 		for i in range(int(len(hex1Withoutx))//2):
-			array1.append(str(X)+hex1WithoutxPlus0[c:2+c])
+			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
 		print('[+] EXPLOTATION:')
 		reverse_array1 = array1.reverse()
@@ -115,7 +114,7 @@ else: #integer and round value, not float
 	else:
 		hex1WithoutxPlus0 = "0"+hex1Withoutx
 		for i in range(int(len(hex1WithoutxPlus0))//2):
-			array1.append(str(X)+hex1WithoutxPlus0[c:2+c])
+			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
 		print('[+] EXPLOTATION:')
 		reverse_array1 = array1.reverse()
