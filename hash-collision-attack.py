@@ -58,7 +58,7 @@ if type(divide) == float:
 		print('\t','[+] Chunks Little Endian Bytes', '*',int(chunkbytes)-1,array1)
 		print('\t','[+] Chunks Little Endian Byte',array2)
 		print('\t','[+] Example of Explotation: $ ./appVuln $(python -c "print(array1*4+array2)")')
-	else: #si es impar
+	else:
 		hex1WithoutxPlus0 = "0"+hex1Withoutx
 		hex2WithoutxPlus0 = "0"+hex2Withoutx
 		for i in range(int(len(hex1WithoutxPlus0))//2):
@@ -84,7 +84,7 @@ else: #integer and round value, not float
 		print('[+] RESULTS:')
 		print('\t','[+] Chunks Little Endian Bytes', '*',int(chunkbytes),array1)
 		print('\t','[+] Example of Explotation: $ ./appVuln $(python -c "print(array1*4+array2)")')
-	else: #si es impar
+	else:
 		hex1WithoutxPlus0 = "0"+hex1Withoutx
 		for i in range(int(len(hex1WithoutxPlus0))//2):
 			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
