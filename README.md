@@ -63,6 +63,7 @@ In the first function just take the 20 Bytes of our input. We want to pass 20 by
 So in the source we can see, hashcode = 0x21DD09EC, which is later compared to the result of the function check_password(argv[1]). If they are the same this will cat our flag.
 
 We can getting proof about the arquitecture:
+```
 col@ubuntu:~$ readelf -h col | head
 ELF Header:
   Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
@@ -75,31 +76,35 @@ ELF Header:
   Machine:                           Intel 80386
   Version:                           0x1
 
-
+```
+More information about the attack:
 https://learncryptography.com/hash-functions/hash-collision-attack
 
 Since it's a 32-bit executable, pointers to int will have a size of 4 bytes. Thus our hashing function takes our 20 bytes, casts the char* into an int* (5 chunks of 4 bytes) and sums the integers relative to each chunk. Since our hashing function is not perfect, there will probably be many collisions. All we need is to find one. Let's check the value of 0x21DD09EC and divide it by five:
 
+```
 $ python -c "print(0x21DD09EC)" 
 568134124 
 $ python -c "print(0x21DD09EC/5)" 
 113626824.8
+```
 
 Our result is not a round number. But it doesn't have to be anyways. Let's use 4 chunks of 113626824 and one for the remainder, then the flag is ours:
-
+```
 $ python -c "print(0x21DD09EC - 113626824*4)" 
 113626828 
 $ python -c "print(hex(113626824), hex(113626828))" 
 0x6c5cec8 0x6c5cecc 
 $ ./col $(python -c "print('\xc8\xce\xc5\x06'*4+'\xcc\xce\xc5\x06')")
 daddy! I just managed to create a hash collision :)
-
+```
 # Example of use this Script in wargame pwnable.kr (collision)
-
+```
 root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
 [+]Hashcode 0x21DD09EC
 [+]Number of chunk bytes 5
 [+] RESULTS:
      [+] Chunks Little Endian Bytes * 4 ['x06', 'xc5', 'xce', 'xc8']
      [+] Chunks Little Endian Byte ['x06', 'xc5', 'xce', 'xcc']
-     [+] Example of Explotation: $ ./col $(python -c "print(array1*4+array2)")
+     [+] Example of Explotation: $ ./col $(python -c "print(array1*4+array2)"
+```
