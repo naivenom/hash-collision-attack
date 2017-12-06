@@ -8,7 +8,7 @@
 ## Because hash functions have infinite input length and a predefined output length, there is inevitably going to be the possibility of two different inputs that produce the same output hash.
 ## If two separate inputs produce the same hash output, it is called a collision. This collision can then be exploited by any application that compares two hashes together – such as password hashes, file integrity checks, etc.
 ##------------------------------------------------------------
-## [Usage]: Example
+## [Usage]:
 ## python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5 --vulnapp col
 ###############################################################
 
