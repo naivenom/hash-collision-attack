@@ -26,7 +26,7 @@ wrong passcode.
 ```
 So it wants us to enter a 20 byte passcode, and obviously compares it to something as apparently our 20 byte passcode is wrong. Let’s take a look at the source…
 
-If we look at source code:
+If we look at vulnerable source code:
 ```c
 #include <stdio.h>
 #include <string.h>
