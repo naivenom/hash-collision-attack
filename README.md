@@ -11,7 +11,7 @@ root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD0
      '\xc8\xce\xc5\x06'
      '\xcc\xce\xc5\x06'
 [+] PYTHON EXPLOIT CODE: ./col $(python -c "print('\xc8\xce\xc5\x06'*4+'\xcc\xce\xc5\x06')")
-you get it the flag
+daddy! I just managed to create a hash collision :)
 ```
 # Example in wargame pwnable.kr (collision)
 
