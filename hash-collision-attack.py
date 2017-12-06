@@ -78,8 +78,6 @@ if type(divide) == float:
 		for i in range(int(len(hex1WithoutxPlus0))//2):
 			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
-			#06c5cec8
-			#'\x06\xc5\xce\xc8'
 		c = 0
 		for i in range(int(len(hex2WithoutxPlus0))//2):
 			array2.append(str(x)+hex2WithoutxPlus0[c:2+c])
