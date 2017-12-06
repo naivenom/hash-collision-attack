@@ -25,8 +25,8 @@ parser.add_argument('--chunkbytes', action='store', dest='chunkbytes',
 parser.add_argument('--version', action='version', version='%(prog)s 0.1')
 
 results = parser.parse_args()
-print('[+]Hashcode', results.hashcode)
-print ('[+]Number of chunk bytes', results.chunkbytes)
+print('[+]Hashcode:', results.hashcode)
+print ('[+]Number of chunk bytes:', results.chunkbytes)
 
 c = 0
 x = "x"
