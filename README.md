@@ -3,13 +3,15 @@ A Hash Collision Attack is an attempt to find two input strings of a hash functi
 
 # Example of use this Script in wargame pwnable.kr (collision)
 ```
-root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
+root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5 --vulnapp col
 [+]Hashcode: 0x21DD09EC
 [+]Number of chunk bytes: 5
-[+] RESULTS:
-     [+] Chunks Little Endian Bytes * 4 ['x06', 'xc5', 'xce', 'xc8']
-     [+] Chunks Little Endian Byte ['x06', 'xc5', 'xce', 'xcc']
-     [+] Example of Explotation: $ ./col $(python -c "print(array1*4+array2)"
+[+]Vulnapp: col
+[+] EXPLOTATION:
+     '\xc8\xce\xc5\x06'
+     '\xcc\xce\xc5\x06'
+[+] PYTHON EXPLOIT CODE: ./col $(python -c "print('\xc8\xce\xc5\x06'*4+'\xcc\xce\xc5\x06')")
+you get it the flag
 ```
 # Example in wargame pwnable.kr (collision)
 
