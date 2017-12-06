@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
 }
 
 ```
-In the first function just take the 20 Bytes of our input. We want to pass 20 bytes than when cast to integers (5 of them, as a single int occupies 4 bytes), sum up to 0x21DD09EC.
+As you can see from the code, the password length needs to be 20 bytes, which is equal to 5 integers (1 int = 4 bytes). The sum of the 5 integers from the input needs to be equal to 0x21DD09EC to obtain the flag. Let's find 5 integers that are in total equal to 0x21DD09EC:
 
 So in the source we can see, hashcode = 0x21DD09EC, which is later compared to the result of the function check_password(argv[1]). If they are the same this will cat our flag.
 
@@ -77,9 +77,6 @@ ELF Header:
   Version:                           0x1
 
 ```
-More information about the attack:
-https://learncryptography.com/hash-functions/hash-collision-attack
-
 Since it's a 32-bit executable, pointers to int will have a size of 4 bytes. Thus our hashing function takes our 20 bytes, casts the char* into an int* (5 chunks of 4 bytes) and sums the integers relative to each chunk. Since our hashing function is not perfect, there will probably be many collisions. All we need is to find one. Let's check the value of 0x21DD09EC and divide it by five:
 
 ```
@@ -98,6 +95,9 @@ $ python -c "print(hex(113626824), hex(113626828))"
 $ ./col $(python -c "print('\xc8\xce\xc5\x06'*4+'\xcc\xce\xc5\x06')")
 daddy! I just managed to create a hash collision :)
 ```
+More information about the attack:
+https://learncryptography.com/hash-functions/hash-collision-attack
+
 # Example of use this Script in wargame pwnable.kr (collision)
 ```
 root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
