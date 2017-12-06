@@ -68,7 +68,7 @@ int main(int argc, char* argv[]){
 }
 
 ```
-As you can see from the code, the password length needs to be 20 bytes, which is equal to 5 integers (1 int = 4 bytes). The sum of the 5 integers from the input needs to be equal to 0x21DD09EC to obtain the flag. Let's find 5 integers that are in total equal to 0x21DD09EC:
+As you can see from the code, the password length needs to be 20 bytes, which is equal to 5 integers (1 int = 4 bytes). The sum of the 5 integers from the input needs to be equal to 0x21DD09EC to obtain the flag. Let's find 5 integers that are in total equal to 0x21DD09EC
 
 So in the source we can see, hashcode = 0x21DD09EC, which is later compared to the result of the function check_password(argv[1]). If they are the same this will cat our flag.
 
