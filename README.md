@@ -4,8 +4,8 @@ A Hash Collision Attack is an attempt to find two input strings of a hash functi
 # Example of use this Script in wargame pwnable.kr (collision)
 ```
 root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
-[+]Hashcode 0x21DD09EC
-[+]Number of chunk bytes 5
+[+]Hashcode: 0x21DD09EC
+[+]Number of chunk bytes: 5
 [+] RESULTS:
      [+] Chunks Little Endian Bytes * 4 ['x06', 'xc5', 'xce', 'xc8']
      [+] Chunks Little Endian Byte ['x06', 'xc5', 'xce', 'xcc']
