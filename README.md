@@ -1,6 +1,16 @@
 # hash-collision-attack
 A Hash Collision Attack is an attempt to find two input strings of a hash function that produce the same hash result. Because hash functions have infinite input length and a predefined output length, there is inevitably going to be the possibility of two different inputs that produce the same output hash. If two separate inputs produce the same hash output, it is called a collision. This collision can then be exploited by any application that compares two hashes together – such as password hashes, file integrity checks, etc.
 
+# Example of use this Script in wargame pwnable.kr (collision)
+```
+root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
+[+]Hashcode 0x21DD09EC
+[+]Number of chunk bytes 5
+[+] RESULTS:
+     [+] Chunks Little Endian Bytes * 4 ['x06', 'xc5', 'xce', 'xc8']
+     [+] Chunks Little Endian Byte ['x06', 'xc5', 'xce', 'xcc']
+     [+] Example of Explotation: $ ./col $(python -c "print(array1*4+array2)"
+```
 # Example in wargame pwnable.kr (collision)
 
 ssh col@pwnable.kr -p2222 (pw:guest)
@@ -97,14 +107,3 @@ daddy! I just managed to create a hash collision :)
 ```
 More information about the attack:
 https://learncryptography.com/hash-functions/hash-collision-attack
-
-# Example of use this Script in wargame pwnable.kr (collision)
-```
-root@kali:~/Desktop/Scripts# python3 hash-collision-attack.py --hashcode 0x21DD09EC --chunkbytes 5
-[+]Hashcode 0x21DD09EC
-[+]Number of chunk bytes 5
-[+] RESULTS:
-     [+] Chunks Little Endian Bytes * 4 ['x06', 'xc5', 'xce', 'xc8']
-     [+] Chunks Little Endian Byte ['x06', 'xc5', 'xce', 'xcc']
-     [+] Example of Explotation: $ ./col $(python -c "print(array1*4+array2)"
-```
