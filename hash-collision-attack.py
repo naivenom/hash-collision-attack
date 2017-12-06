@@ -82,7 +82,7 @@ else: #integer and round value, not float
 			c = c+2
 		print('[+] RESULTS:')
 		print('\t','[+] Chunks Little Endian Bytes', '*',int(chunkbytes),array1)
-		print('\t','[+] Example of Explotation: $ ./appVuln $(python -c "print(array1*4+array2)")')
+		print('\t','[+] Example of Explotation: $ ./appVuln $(python -c "print(array1*5)")')
 	else:
 		hex1WithoutxPlus0 = "0"+hex1Withoutx
 		for i in range(int(len(hex1WithoutxPlus0))//2):
@@ -90,4 +90,4 @@ else: #integer and round value, not float
 			c = c+2
 		print('[+] RESULTS:')
 		print('\t','[+] Chunks Little Endian Bytes', '*',int(chunkbytes),array1)
-		print('\t','[+] Example of Explotation: $ ./appVuln $(python -c "print(array1*4+array2)")')
+		print('\t','[+] Example of Explotation: $ ./appVuln $(python -c "print(array1*5)")')
