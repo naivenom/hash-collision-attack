@@ -102,7 +102,7 @@ else: #integer and round value, not float
 	hex1 = hex(divide)
 	hex1Withoutx = hex1.rsplit('x', 1)[1]
 	lenHex1Withoutx = int(len(hex1Withoutx))
-	if lenHex1Withoutx%2 == 0 and lenHex2Withoutx%2 == 0:
+	if lenHex1Withoutx%2 == 0:
 		for i in range(int(len(hex1Withoutx))//2):
 			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
