@@ -112,4 +112,4 @@ else: #integer and round value, not float
 		for i in range(int(len(hex1WithoutxPlus0))//2):
 			array1.append(str(x)+hex1WithoutxPlus0[c:2+c])
 			c = c+2
-		explotationFloat()
+		explotationInteger()
